@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHAI GAMES — Game Developer Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #0a0f0d;
+    --surface: #111a16;
+    --surface-2: #16211c;
+    --primary: #03ff7d;
+    --primary-dim: #037c40;
+    --text: #e8f5ee;
+    --muted: #8aa99b;
+    --border: #1f2e26;
+    --radius: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(600px 300px at 15% -5%, rgba(3,255,125,.08), transparent 60%),
+        radial-gradient(600px 300px at 85% 110%, rgba(3,255,125,.06), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,15,13,.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: .5px;
+    color: var(--text);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .95rem;
+    font-weight: 500;
+    transition: color .25s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* MAIN */
+main {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 50px 6% 40px;
+}
+
+.main {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 50px 6% 0;
+}
+
+.chai-logo {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto 5px;
+    object-fit: contain;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    padding: 0 6% 40px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -.5px;
+    color: var(--text);
+}
+
+.hero h2 span {
+    color: var(--primary);
+}
+
+.hero p {
+    margin-top: 14px;
+    font-size: 1.15rem;
+    color: var(--muted);
+}
+
+/* SECTIONS */
+section {
+    position: relative;
+    z-index: 1;
+    padding: 35px 6%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--primary-dim), transparent);
+}
+
+/* ABOUT */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+    align-items: stretch;
+}
+
+.about-text p {
+    color: var(--muted);
+}
+
+.about-text p + p {
+    margin-top: 16px;
+}
+
+/* ABOUT ME VIDEO */
+.gameplay video {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    max-height: 300px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin-top: 0 auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #000;
+}
+
+/* PROJECT CATEGORIES */
+.project-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 45px;
+}
+
+.project-categories a {
+    text-decoration: none;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.project-category p {
+    text-align: center;
+}
+
+.project-categories a:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.project-category {
+    scroll-margin-top: 100px;
+    margin-bottom: 55px;
+}
+
+/* SPRITE BUTTONS */
+.sprite-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.sprite-btn {
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--primary-dim);
+    padding: 12px 22px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    min-width: 250px;
+}
+
+.sprite-btn:hover,
+.sprite-btn.active {
+    background: var(--primary-dim);
+    color: white;
+}
+
+/* SPRITE GALLERY */
+.sprite-gallery {
+    display: none;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.sprite-gallery.active {
+    display: block;
+}
+
+.sprite-gallery h4 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.sprite-gallery img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+}
+
+.project-category h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.project-category h3::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--primary-dim), transparent);
+}
+
+.project-category > p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+/* PROJECT GAMEPLAY VIDEOS */
+.project-category video {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    margin: 20px auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #000;
+}
+
+/* PROJECT CARDS */
+.project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: transform .3s, border-color .3s;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-dim);
+}
+
+.project-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.project-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--muted);
+}
+
+.buttons {
+    margin-top: 22px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 11px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+    transition: all .25s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #04140b;
+}
+
+.btn-primary:hover {
+    background: #35ff9a;
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    border: 1px solid var(--primary-dim);
+    color: var(--primary);
+}
+
+.btn-ghost:hover {
+    background: rgba(3,255,125,.08);
+}
+
+/* GDD BUTTONS */
+#gdd .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#gdd .btn {
+    min-width: 300px;
+    text-align: center;
+    padding: 14px 30px;
+}
+
+#gdd .project-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* RESUME */
+.resume-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+}
+
+.resume-box iframe {
+    width: 100%;
+    height: 700px;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+}
+
+/* CERTIFICATES */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.certificate-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-dim);
+    box-shadow: 0 12px 40px rgba(3,255,125,.06);
+}
+
+.certificate-card a {
+    display: block;
+    text-decoration: none;
+}
+
+.certificate-image {
+    width: 100%;
+    display: block;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+}
+
+.certificate-content {
+    padding: 18px 20px;
+}
+
+.certificate-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.certificate-issuer {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: .9rem;
+    margin-bottom: 4px;
+}
+
+.certificate-date {
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+/* GAME BUTTONS */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.play-button {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .3s ease;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.play-button:hover {
+    color: var(--primary);
+}
+
+/* FOOTER */
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px 6%;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .project-categories {
+        flex-direction: column;
+    }
+
+    .project-categories a {
+        text-align: center;
+    }
+
+    .about-text {
+        order: 1;
+    }
+
+    .gameplay {
+        order: 2;
+        display: flex;
+        align-items: stretch;
+    }
+
+    .gameplay video {
+        max-width: 100%;
+        max-height: 100%;
+        height: 100%;
+    }
+
+    .project-category video {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .resume-box iframe {
+        height: 500px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CHAI<span>GAMES</span></div>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#certificates">Certificates</a>
+    </nav>
+</header>
+
+<!-- LOGO -->
+<section class="main">
+    <img src="images/chaiLOGO.png" alt="CHAI GAMES Logo" class="chai-logo">
+</section>
+
+<!-- HERO -->
+<section class="hero">
+    <h2>Game Developer <span>Portfolio</span></h2>
+    <p>Unity Developer | Game Designer | Character Designer</p>
+</section>
+
+<!-- ABOUT ME -->
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-container">
+
+        <div class="about-text">
+            <p>
+                Hi! I'm <strong style="color:var(--text)">Chai</strong>, an aspiring game developer, game writer and character designer
+                who enjoys creating engaging gameplay experiences using Unity and C#.
+                I love designing gameplay and mechanics, building levels,
+                and solving technical challenges. I also have a passion in writing 
+                stories, dialogues, and character backgrounds to create immersive narratives in games.
+                As well as designing characters and visual assets to bring the game world to life.
+            </p>
+
+            <p>
+                My goal is to continue improving my game development skills
+                and contribute to exciting projects in the gaming community
+                as I explore and expand my knowledge in the gaming industry.
+            </p>
+        </div>
+
+        <div class="gameplay">
+            <video controls muted loop preload="metadata">
+                <source src="videos/gameplay_Both.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-categories">
+        <a href="#gameplay">Gameplay</a>
+        <a href="#sprites">Sprites</a>
+        <a href="#character-designs">Character Designs</a>
+        <a href="#gdd">Game Design Documents</a>
+        <a href="#game-writing">Game Writing</a>
+        <a href="#web-games">Web Games</a>
+    </div>
+
+    <!-- GAMEPLAY -->
+    <div class="project-category" id="gameplay">
+        <h3>Gameplay</h3>
+
+        <video controls muted loop preload="metadata">
+            <source src="videos/Blind_Justice(gameplay).mp4" type="video/mp4">
+        </video>
+        <p><b>Gameplay footage of Blind Justice</b></p>
+        <video controls muted loop preload="metadata">
+            <source src="videos/Tara_laro_Tayo!(gameplay).mp4" type="video/mp4">
+        </video>
+
+        <p><b>Gameplay footage of Tara, laro tayo!</b></p>
+    </div>
+<!-- SPRITES -->
+<div class="project-category" id="sprites">
+    <h3>Sprites</h3>
+    <p><b>Pixel art, game sprites, and visual assets created for my projects.</b></p>
+
+    <!-- GAME BUTTONS -->
+    <div class="sprite-buttons">
+        <button class="sprite-btn"onclick="showSprites('blindJustice', this)">
+            Blind Justice
+        </button>
+
+        <button class="sprite-btn" onclick="showSprites('taraLaro', this)">
+            Tara Laro Tayo!
+        </button>
+
+        <button class="sprite-btn" onclick="showSprites('adventureToNowhere', this)">
+            Adventure to Nowhere
+        </button>
+    </div>
+
+    <!-- BLIND JUSTICE SPRITES -->
+    <div class="sprite-gallery" id="blindJustice">
+        <h4>Blind Justice Sprites</h4>
+        <img src="sprites/Blind_Justice/play.jpg" alt="Blind Justice Sprite 1">
+        <img src="sprites/Blind_Justice/background_castle.png" alt="Blind Justice Sprite 2">
+        <img src="sprites/Blind_Justice/bush2.png" alt="Blind Justice Sprite 3">
+        <img src="sprites/Blind_Justice/cabinet.png" alt="Blind Justice Sprite 4">
+        <img src="sprites/Blind_Justice/door.png" alt="Blind Justice Sprite 5">
+        <img src="sprites/Blind_Justice/chest_close.png" alt="Blind Justice Sprite 6">
+        <img src="sprites/Blind_Justice/chest_open.png" alt="Blind Justice Sprite 7">
+        <img src="sprites/Blind_Justice/chest_openEmpty.png" alt="Blind Justice Sprite 8">
+        <img src="sprites/Blind_Justice/opening_scene.png" alt="Blind Justice Sprite 9">
+    </div>
+
+    <!-- TARA LARO TAYO SPRITES -->
+    <div class="sprite-gallery" id="taraLaro">
+        <h4>Tara Laro Tayo! Sprites</h4>
+        <img src="sprites/Tara_laro_tayo/1X.png" alt="Tara Laro Tayo Sprite 1">
+        <img src="sprites/Tara_laro_tayo/2X.png" alt="Tara Laro Tayo Sprite 2">
+        <img src="sprites/Tara_laro_tayo/3X.png" alt="Tara Laro Tayo Sprite 3">
+        <img src="sprites/Tara_laro_tayo/background(tara, laro tayo!).png" alt="Tara Laro Tayo Sprite 4">
+        <img src="sprites/Tara_laro_tayo/habolHabulanButton.png" alt="Tara Laro Tayo Sprite 5">
+        <img src="sprites/Tara_laro_tayo/LuksongBakaButton.png" alt="Tara Laro Tayo Sprite 6">
+        <img src="sprites/Tara_laro_tayo/menu.png" alt="Tara Laro Tayo Sprite 7">
+        <img src="sprites/Tara_laro_tayo/pikoBG.png" alt="Tara Laro Tayo Sprite 8">
+        <img src="sprites/Tara_laro_tayo/pikoButton.png" alt="Tara Laro Tayo Sprite 9">
+        <img src="sprites/Tara_laro_tayo/playButton(Tara, laro tayo!).png" alt="Tara Laro Tayo Sprite 10">
+        <img src="sprites/Tara_laro_tayo/Resumee.png" alt="Tara Laro Tayo Sprite 11">
+        <img src="sprites/Tara_laro_tayo/retry.png" alt="Tara Laro Tayo Sprite 12">
+        <img src="sprites/Tara_laro_tayo/skyChoices.png" alt="Tara Laro Tayo Sprite 13">
+    </div>
+
+    <!-- ADVENTURE TO NOWHERE SPRITES -->
+    <div class="sprite-gallery" id="adventureToNowhere">
+        <h4>Adventure to Nowhere Sprites</h4>
+        <img src="sprites/Adventure_to_Nowhere/background opening screen.png" alt="Adventure to Nowhere Sprite 1">
+        <img src="sprites/Adventure_to_Nowhere/bed.png" alt="Adventure to Nowhere Sprite 2">
+        <img src="sprites/Adventure_to_Nowhere/bus.png" alt="Adventure to Nowhere Sprite 3">
+        <img src="sprites/Adventure_to_Nowhere/cabinet.png" alt="Adventure to Nowhere Sprite 4">
+        <img src="sprites/Adventure_to_Nowhere/chair.png" alt="Adventure to Nowhere Sprite 5">
+        <img src="sprites/Adventure_to_Nowhere/computer offmorning.png" alt="Adventure to Nowhere Sprite 6">
+        <img src="sprites/Adventure_to_Nowhere/computer offnight.png" alt="Adventure to Nowhere Sprite 7">
+        <img src="sprites/Adventure_to_Nowhere/computer on.png" alt="Adventure to Nowhere Sprite 8">
+        <img src="sprites/Adventure_to_Nowhere/dialogue box.png" alt="Adventure to Nowhere Sprite 9">
+        <img src="sprites/Adventure_to_Nowhere/drawer.png" alt="Adventure to Nowhere Sprite 10">
+        <img src="sprites/Adventure_to_Nowhere/hpPotion.png" alt="Adventure to Nowhere Sprite 11">
+        <img src="sprites/Adventure_to_Nowhere/shieldPotion.png" alt="Adventure to Nowhere Sprite 12">
+        <img src="sprites/Adventure_to_Nowhere/strenghtPotion.png" alt="Adventure to Nowhere Sprite 13">
+        <img src="sprites/Adventure_to_Nowhere/chicken.png" alt="Adventure to Nowhere Sprite 14">
+        <img src="sprites/Adventure_to_Nowhere/wholeChicken.png" alt="Adventure to Nowhere Sprite 15">
+    </div>
+</div>
+
+    <!-- GAME DESIGN DOCUMENTS -->
+    <div class="project-category" id="gdd">
+        <h3>Game Design Documents (GDD)</h3>
+
+        <div class="project-card">
+            <h4><b>Blind Justice</b></h4>
+
+            <div class="buttons">
+                <a href="images/Blind_Justice GDD.pdf"
+                   class="btn btn-primary" target="_blank">View GDD</a>
+
+                <a href="documents/Blind_Justice GDD.docx"
+                   class="btn btn-ghost" download>Download GDD</a>
+            </div>
+
+            <h4><b>Adventure to Nowhere</b></h4>
+            <div class="buttons">
+                <a href="images/Adventure to Nowhere GDD.pdf"
+                   class="btn btn-primary" target="_blank">View GDD</a>
+
+                <a href="documents/Adventure to Nowhere GDD.docx"
+                   class="btn btn-ghost" download>Download GDD</a>
+        </div>
+    </div>
+
+    <!-- GAME WRITING -->
+    <div class="project-category" id="game-writing">
+        <h3>Game Writing</h3>
+            <p><b>Stories, dialogues, character backgrounds, and narratives.</b></p>
+        <div class="buttons">
+         <a href="images/Adventure to Nowhere.pdf" class="btn btn-primary" target="_blank">View Game Writing</a>   
+        <a href="documents/Adventure to Nowhere.docx" class="btn btn-primary" download>Download Game Writing</a>  
+    </div>
+    </div>
+
+    <!-- WEB GAMES -->
+    <div class="project-category" id="web-games">
+        <h3>Web Games</h3>
+        <p><b>Games developed for web browsers.</b></p>
+        <div class="buttons">
+            <a href="https://w68zqjkpb5-ai.github.io/blind-justice/" target="_blank" class="btn btn-primary">Play Blind Justice</a>
+            <a href="https://w68zqjkpb5-ai.github.io/tara-laro-tayo/" target="_blank" class="btn btn-primary">Play Tara, laro tayo!</a>
+    </div>
+
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+    <h2 class="section-title">Resume</h2>
+
+    <div class="resume-box">
+        <iframe src="images/Resume.pdf" title="Resume PDF"></iframe>
+
+        <div style="margin-top:16px;">
+            <a href="images/Resume.pdf" class="btn btn-primary" target="_blank">
+                Download Resume
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+    <h2 class="section-title">Certificates</h2>
+
+    <div class="certificates-grid">
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/33fc54bc1e3a6b8eb11711be400f96b6" target="_blank">
+                <img src="images/Screenshot 2026-03-22 141358.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">Getting Started with GameMaker</div>
+                    <div class="certificate-issuer">University of Colorado</div>
+                    <div class="certificate-date">October 11, 2025</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/77dbbb789f6da6ec7abfce5fccd5f539" target="_blank">
+                <img src="images/Screenshot 2026-03-22 141331.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">Planning, HUDS, and Spawners in GameMaker</div>
+                    <div class="certificate-issuer">University of Colorado</div>
+                    <div class="certificate-date">November 9, 2025</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/a16edafede02536e0ed25b7faaf43943" target="_blank">
+                <img src="images/Screenshot 2026-03-22 135735.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">Game Development with GameMaker</div>
+                    <div class="certificate-issuer">University of Colorado</div>
+                    <div class="certificate-date">November 12, 2025</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/6e5393b09dcdf1a86e63297e5e4ab61e" target="_blank">
+                <img src="images/Screenshot 2026-03-22 141257.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">Parenting and More GameMaker Language Code</div>
+                    <div class="certificate-issuer">University of Colorado</div>
+                    <div class="certificate-date">November 12, 2025</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/c1d05a5e9eaaf36ec1f5475150dbc28d" target="_blank">
+                <img src="images/Screenshot 2026-03-22 141142.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">Introduction to C# Programming and Unity</div>
+                    <div class="certificate-issuer">University of Colorado</div>
+                    <div class="certificate-date">December 4, 2025</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/29e41a9833e04f6715d7e27a484ff26b" target="_blank">
+                <img src="images/Screenshot 2026-03-22 140830.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">More C# Programming and Unity</div>
+                    <div class="certificate-issuer">University of Colorado</div>
+                    <div class="certificate-date">December 14, 2025</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/ddaac936adf96e334c78b0d85b29c0cd" target="_blank">
+                <img src="images/Screenshot 2026-03-22 140757.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">C# Class Development</div>
+                    <div class="certificate-issuer">University of Colorado</div>
+                    <div class="certificate-date">December 26, 2025</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/1a1bcdbbc27651a16c7f674449774713" target="_blank">
+                <img src="images/Screenshot 2026-03-22 135849.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">C# Programming for Unity Game Development</div>
+                    <div class="certificate-issuer">University of Colorado</div>
+                    <div class="certificate-date">January 11, 2026</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/cbe36d4022b7749cc5bf25b9184fb39c" target="_blank">
+                <img src="images/Screenshot 2026-03-22 140655.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">Intermediate Object-Oriented Programming for Unity Games</div>
+                    <div class="certificate-issuer">University of Colorado</div>
+                    <div class="certificate-date">January 11, 2026</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/018694455cccad510ce7c6574d7b64c6" target="_blank">
+                <img src="images/Screenshot 2026-03-22 135919.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">Introduction to Game Design</div>
+                    <div class="certificate-issuer">Epic Games</div>
+                    <div class="certificate-date">February 14, 2026</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <a href="https://coursera.org/share/07c506a6ac860a2ca4939280a22faa09" target="_blank">
+                <img src="images/Screenshot 2026-03-22 135949.png" alt="Certificate" class="certificate-image">
+                <div class="certificate-content">
+                    <div class="certificate-title">Story Narrative Development for Video Games</div>
+                    <div class="certificate-issuer">CalArts</div>
+                    <div class="certificate-date">March 11, 2026</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="certificate-card">
+            <img src="images/RAITE 2024.jpg" alt="Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <div class="certificate-title">(IRCITE) Breaking Barriers and Empowering Change Through Global Innovation, Knowledge, Engineering and Diversity-Centered Research</div>
+                <div class="certificate-issuer">Wesleyan University-Philippines</div>
+                <div class="certificate-date">March 8, 2024</div>
+            </div>
+        </div>
+
+        <div class="certificate-card">
+            <img src="images/RAITE 2025.jpg" alt="Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <div class="certificate-title">(RAITE) I.T. Beyond Tomorrow: Shaping the Digital Frontier</div>
+                <div class="certificate-issuer">Wesleyan University-Philippines</div>
+                <div class="certificate-date">March 8, 2024</div>
+            </div>
+        </div>
+
+        <div class="certificate-card">
+            <img src="images/RAITE 2026.jpg" alt="Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <div class="certificate-title">(RAITE) CRTL + NEXT: Empowering Students as Future-Ready Digital Innovators and Technology Leaders</div>
+                <div class="certificate-issuer">Pampanga State University</div>
+                <div class="certificate-date">October 2, 2026</div>
+            </div>
+        </div>
+
+        <div class="certificate-card">
+            <img src="images/LEADER.jpg" alt="Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <div class="certificate-title">Leading with Care: Youth Leadership for Mental Health and Well-being</div>
+                <div class="certificate-issuer">Provincial Auditorium, Old Capitol Building</div>
+                <div class="certificate-date">November 14, 2025</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- GAME LINKS -->
+<div class="game-container">
+    <a href="https://w68zqjkpb5-ai.github.io/blind-justice/" target="_blank" class="play-button">
+        PLAY BLIND JUSTICE (EXCLUSIVE IN WINDOWS)
+    </a>
+
+    <a href="https://w68zqjkpb5-ai.github.io/tara-laro-tayo/" target="_blank" class="play-button">
+        PLAY TARA, LARO TAYO!
+    </a>
+</div>
+
+<script>
+function showSprites(game, button) {
+
+    // Hide all sprite galleries
+    document.querySelectorAll('.sprite-gallery').forEach(gallery => {
+        gallery.classList.remove('active');
+    });
+
+    // Remove active state from all buttons
+    document.querySelectorAll('.sprite-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Show selected game's sprites
+    document.getElementById(game).classList.add('active');
+
+    // Highlight selected button
+    button.classList.add('active');
+}
+</script>
+
+<footer>
+    <p>© 2026 CHAI GAMES | Game Developer Portfolio</p>
+</footer>
+
+</body>
+</html>
