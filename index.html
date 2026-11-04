@@ -525,6 +525,29 @@ footer {
     font-size: .9rem;
 }
 
+.linkedin-link {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+.linkedin-link p {
+    color: var(--text);
+}
+
+.contact-text {
+    color: var(--text);
+}
+
+.linkedin-link b {
+    color: var(--primary-dim);
+    transition: color 0.3s ease;
+}
+
+.linkedin-link b:hover {
+    color: var(--primary);
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .about-container {
@@ -548,6 +571,7 @@ footer {
 
     .project-categories a {
         text-align: center;
+        color:#037c40;
     }
 
     .about-text {
@@ -995,6 +1019,13 @@ function showSprites(game, button) {
 
 <footer>
     <p>© 2026 CHAI GAMES | Game Developer Portfolio</p>
+
+    <a href="https://www.linkedin.com/in/kai-nicchia-salvador-4b7767322"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="linkedin-link">
+        <span class="contact-text">Contact me on </span><b>LinkedIn</b>
+    </a>
 </footer>
 
 </body>
