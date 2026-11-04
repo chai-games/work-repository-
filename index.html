@@ -290,6 +290,15 @@ section {
     padding: 10px;
 }
 
+/* WEB GAMES */
+.web-games {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 25px;
+}
+
 .project-category h3 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.5rem;
@@ -493,12 +502,22 @@ section {
 .game-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
+}
+
+.game-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.windows-label {
     width: 100%;
-    margin: 20px auto;
-    padding: 0 20px;
-    flex-wrap: wrap;
+    text-align: center;
+    font-size: 15px;
+    margin-top: -10px;
 }
 
 .play-button {
@@ -506,7 +525,7 @@ section {
     font-weight: bold;
     text-decoration: none;
     transition: .3s ease;
-    font-size: 1.2rem;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -525,9 +544,11 @@ footer {
     font-size: .9rem;
 }
 
-.linkedin-link {
+.linkedin-link,
+.email-link {
     text-decoration: none;
-    white-space: nowrap;
+    color: var(--primary-dim);
+    transition: color 0.3s ease;
 }
 
 
@@ -544,7 +565,8 @@ footer {
     transition: color 0.3s ease;
 }
 
-.linkedin-link b:hover {
+.linkedin-link b:hover,
+.email-link b:hover {
     color: var(--primary);
 }
 
@@ -668,6 +690,8 @@ footer {
         <a href="#character-designs">Character Designs</a>
         <a href="#gdd">Game Design Documents</a>
         <a href="#game-writing">Game Writing</a>
+        <a href="#playwright">Playwright</a>
+        <a href="#comic">Comic</a>
         <a href="#web-games">Web Games</a>
     </div>
 
@@ -789,19 +813,52 @@ footer {
             <p><b>Stories, dialogues, character backgrounds, and narratives.</b></p>
         <div class="buttons">
          <a href="images/Adventure to Nowhere.pdf" class="btn btn-primary" target="_blank">View Game Writing</a>   
-        <a href="documents/Adventure to Nowhere.docx" class="btn btn-primary" download>Download Game Writing</a>  
+        <a href="documents/Adventure to Nowhere.docx" class="btn btn-ghost" download>Download Game Writing</a>  
     </div>
     </div>
 
-    <!-- WEB GAMES -->
-    <div class="project-category" id="web-games">
-        <h3>Web Games</h3>
-        <p><b>Games developed for web browsers.</b></p>
+    <!-- PLAYWRIGHT -->
+    <div class="project-category" id="playwright">
+        <h3>Playwright</h3>
+        <p><b>Scripts and dialogues for interactive storytelling.</b></p>
         <div class="buttons">
-            <a href="https://w68zqjkpb5-ai.github.io/blind-justice/" target="_blank" class="btn btn-primary">Play Blind Justice</a>
-            <a href="https://w68zqjkpb5-ai.github.io/tara-laro-tayo/" target="_blank" class="btn btn-primary">Play Tara, laro tayo!</a>
+            <a href="images/Threads-of-Heritage.pdf" class="btn btn-primary" target="_blank">View Playwright</a>
+            <a href="documents/Threads-of-Heritage.docx" class="btn btn-ghost" download>Download Playwright</a>
+        </div>
+
+    <!-- COMIC -->
+    <div class="project-category" id="comic">
+        <h3>Comic</h3>
+        <p><b>Original comic strips and illustrations.</b></p>
+        <div class="buttons">
+            <a href="images/Comic1.jpg" class="btn btn-primary" target="_blank">View Comic</a>
+            <a href="images/Comic2.jpg" class="btn btn-ghost" download>Download Comic</a>
+            <a href="images/comic2.jpg" class="btn btn-primary" target="_blank">View Comic</a>
+            <a href="images/comic1.jpg" class="btn btn-ghost" download>Download Comic</a>
+        </div>
     </div>
 
+   <!-- WEB GAMES -->
+<div class="project-category" id="web-games">
+    <h3>Web Games</h3>
+    <p><b>Games developed for web browsers.</b></p>
+
+    <div class="sprite-buttons">
+        <a href="https://w68zqjkpb5-ai.github.io/blind-justice/"
+           target="_blank"
+           class="sprite-btn"
+           style="text-decoration: none; display: inline-flex; justify-content: center; align-items: center;">
+            Blind Justice
+        </a>
+
+        <a href="https://w68zqjkpb5-ai.github.io/tara-laro-tayo/"
+           target="_blank"
+           class="sprite-btn"
+           style="text-decoration: none; display: inline-flex; justify-content: center; align-items: center;">
+            Tara Laro Tayo!
+        </a>
+    </div>
+</div>
 </section>
 
 <!-- RESUME -->
@@ -812,7 +869,7 @@ footer {
         <iframe src="images/Resume.pdf" title="Resume PDF"></iframe>
 
         <div style="margin-top:16px;">
-            <a href="images/Resume.pdf" class="btn btn-primary" target="_blank">
+            <a href="images/Resume.pdf" class="btn btn-primary" download target="_blank">
                 Download Resume
             </a>
         </div>
@@ -987,13 +1044,21 @@ footer {
 
 <!-- GAME LINKS -->
 <div class="game-container">
-    <a href="https://w68zqjkpb5-ai.github.io/blind-justice/" target="_blank" class="play-button">
-        PLAY BLIND JUSTICE (EXCLUSIVE IN WINDOWS)
-    </a>
 
-    <a href="https://w68zqjkpb5-ai.github.io/tara-laro-tayo/" target="_blank" class="play-button">
-        PLAY TARA, LARO TAYO!
-    </a>
+    <div class="game-item">
+        <a href="https://w68zqjkpb5-ai.github.io/blind-justice/" target="_blank" class="play-button">
+            PLAY BLIND JUSTICE
+        </a>
+          <p class="windows-label">(EXCLUSIVE IN WINDOWS)</p>
+    </div>
+
+    <div class="game-item">
+        <a href="https://w68zqjkpb5-ai.github.io/tara-laro-tayo/" target="_blank" class="play-button">
+            PLAY TARA, LARO TAYO!
+        </a>
+        <p class="windows-label">(EXCLUSIVE IN WINDOWS)</p>
+    </div>
+
 </div>
 
 <script>
@@ -1015,17 +1080,46 @@ function showSprites(game, button) {
     // Highlight selected button
     button.classList.add('active');
 }
+
+function showWebGames(game, button) {
+
+    // Hide all game writing sections
+    document.querySelectorAll('.game-writing').forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Remove active state from all buttons
+    document.querySelectorAll('.game-writing-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Show selected game's writing
+    document.getElementById(game).classList.add('active');
+
+    // Highlight selected button
+    button.classList.add('active');
+}
 </script>
 
 <footer>
     <p>© 2026 CHAI GAMES | Game Developer Portfolio</p>
 
-    <a href="https://www.linkedin.com/in/kai-nicchia-salvador-4b7767322"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="linkedin-link">
-        <span class="contact-text">Contact me on </span><b>LinkedIn</b>
-    </a>
+    <p>
+        <span class="contact-text">Contact me on </span>
+        <a href="https://www.linkedin.com/in/kai-nicchia-salvador-4b7767322"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="linkedin-link">
+            <b>LinkedIn</b>
+        </a>
+    </p>
+
+    <p>
+        <span class="contact-text">Email: </span>
+        <a href="mailto:kainicchiasalvador@gmail.com" class="email-link">
+            kainicchiasalvador@gmail.com
+        </a>
+    </p>
 </footer>
 
 </body>
